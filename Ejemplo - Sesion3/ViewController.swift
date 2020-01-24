@@ -15,18 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtNombreCiudad: UILabel!
     @IBOutlet weak var miSwitch: UISwitch!
     
+    @IBOutlet weak var miView: UIView!
     @IBOutlet weak var txtdescripcion: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        procesando(misegment)
+        procesando(misegment!)
     }
 
     @IBAction func procesando(_ sender: Any) {
-       // let misegment2 = sender as! UISegmentedControl
-        
         let selectedIndex = misegment!.selectedSegmentIndex
         print("index seleccionado",selectedIndex)
         let selectedName = misegment.titleForSegment(at: selectedIndex) ?? ""
@@ -65,6 +64,16 @@ class ViewController: UIViewController {
         
         
     }
+    @IBAction func ocultarImagen(_ sender: Any) {
+          if miSwitch.isOn {
+              contenedorImg.isHidden = false
+          }else{
+              contenedorImg.isHidden = true
+            // Ubicaremos arriba al miView
+            miView.frame = CGRect(x: 20, y: 191, width: 374, height: 315)
+          }
+          
+      }
     
 }
 
