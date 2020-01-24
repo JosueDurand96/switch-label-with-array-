@@ -21,13 +21,49 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        procesando(misegment)
     }
 
     @IBAction func procesando(_ sender: Any) {
+       // let misegment2 = sender as! UISegmentedControl
+        
         let selectedIndex = misegment!.selectedSegmentIndex
         print("index seleccionado",selectedIndex)
-        let selectedName = misegment.titleForSegment(at: selectedIndex)
+        let selectedName = misegment.titleForSegment(at: selectedIndex) ?? ""
         print("descripcion",selectedName)
+        
+//        if selectedIndex == 0 {
+//            print("Seleccionado \(selectedName)")
+//            txtNombreCiudad.text = selectedName
+//        }else if selectedIndex == 1 {
+//            print("Seleccionado \(selectedName)")
+//            txtNombreCiudad.text = selectedName
+//        }else{
+//            print("Seleccionado \(selectedName)")
+//            txtNombreCiudad.text = selectedName
+//        }
+        switch selectedIndex {
+        case 0:
+            print("Seleccionado \(selectedName)")
+            txtNombreCiudad.text = selectedName
+            txtdescripcion.text = "Aqui Descripcion de Lima"
+        case 1:
+           print("Seleccionado \(selectedName)")
+           txtNombreCiudad.text = selectedName
+           txtdescripcion.text = "Aqui de Cuzco"
+        case 2:
+            print("Seleccionado \(selectedName)")
+            txtNombreCiudad.text = selectedName
+            txtdescripcion.text = "Aqui de Arequipa"
+        default:
+            break
+        }
+        
+        
+        txtNombreCiudad.text = selectedName
+        contenedorImg.image = UIImage(named:selectedName)
+        
+        
     }
     
 }
